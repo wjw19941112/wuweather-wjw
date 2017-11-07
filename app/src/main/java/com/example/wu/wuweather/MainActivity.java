@@ -155,9 +155,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
-
-
     //获取网络数据
     /**
     *
@@ -206,8 +203,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }).start();
     }
-
-
 
     //编写解析函数
     private TodayWeather parseXML(String xmldata){
@@ -294,9 +289,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return todayWeather;
     }
-
-
-
 
     //更新ui控件
     void updateTodayWeather(TodayWeather todayWeather){
