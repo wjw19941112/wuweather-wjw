@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (view.getId() == R.id.title_city_manager){
             Intent i = new Intent(this,SelectCity.class);
             startActivity(i);
-            //startActivity(i);
+
             startActivityForResult(i,1);
         }
 

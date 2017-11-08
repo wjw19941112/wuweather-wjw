@@ -24,13 +24,13 @@ public class CityDB {
     }
     public List<City> getAllCity(){
         List<City> list = new ArrayList<City>();
-        Cursor c = db.rawQuery("SELECT * from" + CITY_TABLE_NAME,null);
+        Cursor c = db.rawQuery("SELECT * from " + CITY_TABLE_NAME,null);
         while (c.moveToNext()){
             String province = c.getString(c.getColumnIndex("province"));
             String city = c.getString(c.getColumnIndex("city"));
             String number = c.getString(c.getColumnIndex("number"));
             String allPY = c.getString(c.getColumnIndex("allpy"));
-            String allFirstPY = c.getString(c.getColumnIndex("allFirstpy"));
+            String allFirstPY = c.getString(c.getColumnIndex("allfirstpy"));
             String firstPY = c.getString(c.getColumnIndex("firstpy"));
             City item = new City(province,city,number,allFirstPY,allPY,firstPY);
             list.add(item);

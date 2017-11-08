@@ -2,6 +2,7 @@ package com.example.wu.app;
 
 import android.app.Application;
 import android.os.Environment;
+
 import android.util.Log;
 
 import com.example.wu.bean.City;
@@ -22,6 +23,7 @@ public class MyApplication extends Application {
     private static final String TAG = "MyAPP";
 
     private static MyApplication mApplication;
+
     private CityDB mCityDB;
 
     private List<City> mCityList;
@@ -40,6 +42,7 @@ public class MyApplication extends Application {
         new Thread(new Runnable(){
             @Override
             public void run() {
+                //TODO Auto-generated method stub
                 prepareCityList();
             }
         }).start();
@@ -59,6 +62,7 @@ public class MyApplication extends Application {
     }
 
     public List<City> getCityList(){
+
         return mCityList;
     }
 
@@ -67,10 +71,10 @@ public class MyApplication extends Application {
     }
 
     private CityDB openCityDB(){
-        String path = "data"
+        String path = "/data"
                 + Environment.getDataDirectory().getAbsolutePath()
                 + File.separator + getPackageName()
-                + File.separator + "database1"
+                + File.separator + "database"
                 + File.separator
                 + CityDB.CITY_DB_NAME;
         File db = new File(path);
@@ -80,7 +84,7 @@ public class MyApplication extends Application {
             String pathfolder = "/data"
                     + Environment.getDataDirectory().getAbsolutePath()
                     + File.separator + getPackageName()
-                    + File.separator + "database1"
+                    + File.separator + "database"
                     + File.separator;
             File dirFirstFolder = new File(pathfolder);
             if (!dirFirstFolder.exists()){
