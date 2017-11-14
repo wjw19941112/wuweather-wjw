@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    //选择城市标题栏
     <RelativeLayout
+        android:id="@+id/selectcity_title"
         android:layout_width="fill_parent"
         android:layout_height="45dp"
         android:background="#ffcd2626">
@@ -33,5 +35,22 @@
             android:layout_toRightOf="@id/title_back"
             android:background="#A71717"
             android:gravity="center"/>
+    </RelativeLayout>
+
+
+    //显示城市列表
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/selectcity_title">
+
+        <ListView
+            android:id="@+id/selectcity_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+
+
     </RelativeLayout>
 </RelativeLayout>

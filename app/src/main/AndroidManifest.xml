@@ -2,9 +2,9 @@
 
     package="com.example.wu.wuweather">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET"/>P  //增加访问internet权限
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>   //打开查看网络状态权限
     <application
         android:name="com.example.wu.app.MyApplication"
         android:allowBackup="true"
