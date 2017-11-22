@@ -36,13 +36,48 @@
             android:background="#A71717"
             android:gravity="center"/>
     </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/selectcity_search_rela"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/selectcity_title">
+        <RelativeLayout
+            android:id="@+id/username"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_toLeftOf="@+id/selectcity_search_buttonrela">
+            <EditText
+                android:id="@+id/selectcity_search"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:hint="搜索全国城市（中文）"
+                android:textColor="#ff000000"
+                android:textColorHint="#ffcccccc"
+                android:textSize="15sp"
+                android:drawableLeft="@drawable/magnifying_glass"
+                android:lines="1"
+                android:background="@drawable/contact_search_box_edittext_keyword_background" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/selectcity_search_buttonrela"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:id="@+id/selectcity_search_button"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/search_button"/>
+        </RelativeLayout>
+    </RelativeLayout>
 
 
     //显示城市列表
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/selectcity_title">
+        android:layout_below="@id/selectcity_search_rela">
 
         <ListView
             android:id="@+id/selectcity_lv"

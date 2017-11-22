@@ -34,7 +34,7 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private String updateCityCode;
+
     TodayWeather todayWeather = null;
 
     private static final int UPDATE_TODAY_WEATHER=1;
@@ -90,11 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initView();
 
-       // updateCityCode = getIntent().getStringExtra("cityCode");
-       // Log.d("cityCode",updateCityCode);
-       // if (updateCityCode!="-1"){
-         //   queryWeatherCode(updateCityCode);
-       // }
+
 
     }
 
@@ -130,16 +126,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+
+
      //接收选择城市界面传来的cityode
     protected void onActivityResult(int requestCode,int resultCode,Intent data){
 
         if (requestCode == 1 && resultCode == RESULT_OK){
-            updateCityCode = getIntent().getStringExtra("cityCode");
-            Log.d("myWeather","选择的城市代码为"+updateCityCode);
+            String newCityCode = data.getStringExtra("cityCode");
+            Log.d("myWeather","选择的城市代码为"+newCityCode);
 
            if (NetUtil.getNetworkState(this) != NetUtil.NETWORN_NONE){
                 Log.d("myWeather","网络OK");
-                queryWeatherCode(updateCityCode);
+                queryWeatherCode(newCityCode);
             }else {
                 Log.d("myWeather","网络挂了");
                 Toast.makeText(MainActivity.this,"网络挂了！",Toast.LENGTH_LONG).show();
@@ -166,19 +164,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fengxiangTv=(TextView)findViewById(R.id.fengxiang);
 
 
+        SharedPreferences sharedPreferences=getSharedPreferences("CityCodePreference",MODE_PRIVATE);
+        String cityCode=sharedPreferences.getString("cityCode","");
+        if (NetUtil.getNetworkState(this)!=NetUtil.NETWORN_NONE){
+            Log.d("myWeather","网络OK");
+            Toast.makeText(MainActivity.this,"网络OK！",Toast.LENGTH_LONG).show();
+            queryWeatherCode(cityCode);
 
-        city_name_Tv.setText("N/A");
-        cityTv.setText("N/A");
-        timeTv.setText("N/A");
-        humidityTv.setText("N/A");
-        weekTv.setText("N/A");
-        pmDataTv.setText("N/A");
-        pmQualityTv.setText("N/A");
-        temperatureTv.setText("N/A");
-        climateTv.setText("N/A");
-        windTv.setText("N/A");
-        wenduTv.setText("N/A");
-        fengxiangTv.setText("N/A");
+        }else {
+            Log.d("myWeather","网络挂了");
+            Toast.makeText(MainActivity.this,"网络挂了！",Toast.LENGTH_LONG).show();
+        }
+
+
+
+//        city_name_Tv.setText("N/A");
+//        cityTv.setText("N/A");
+//        timeTv.setText("N/A");
+//        humidityTv.setText("N/A");
+//        weekTv.setText("N/A");
+//        pmDataTv.setText("N/A");
+//        pmQualityTv.setText("N/A");
+//        temperatureTv.setText("N/A");
+//        climateTv.setText("N/A");
+//        windTv.setText("N/A");
+//        wenduTv.setText("N/A");
+//        fengxiangTv.setText("N/A");
 
     }
 
@@ -332,7 +343,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cityTv.setText(todayWeather.getCity());
         timeTv.setText(todayWeather.getUpdatetime()+"发布");
         humidityTv.setText("湿度："+todayWeather.getShidu());
-        wenduTv.setText("温度："+todayWeather.getWendu());
+        wenduTv.setText("温度："+todayWeather.getWendu()+"℃");
         pmDataTv.setText(todayWeather.getPm25());
         pmQualityTv.setText(todayWeather.getQuality());
         weekTv.setText(todayWeather.getDate());
