@@ -2,25 +2,28 @@
 
     package="com.example.wu.wuweather">
 
-    <uses-permission android:name="android.permission.INTERNET"/>P  //增加访问internet权限
+    <uses-permission android:name="android.permission.INTERNET"/>  //增加访问internet权限
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>   //打开查看网络状态权限
     <application
         android:name="com.example.wu.app.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="每日天气"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+        </activity>
+
+        <activity android:name=".SelectCity">
+        </activity>
+        <activity android:name=".Guide">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-
-        <activity android:name=".SelectCity">
         </activity>
 
     </application>
