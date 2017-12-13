@@ -22,6 +22,7 @@ public class Guide extends Activity implements ViewPager.OnPageChangeListener{
     private ViewPager vp;
     private List<View> views;
 
+
     private ImageView[] dots;
     private int[] ids = {R.id.iv1,R.id.iv2,R.id.iv3};
     private Button btn;
